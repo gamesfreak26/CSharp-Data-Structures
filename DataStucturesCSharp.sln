@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStucturesCSharp", "DataStucturesCSharp\DataStucturesCSharp.csproj", "{C3B12176-E8EC-4AF4-8180-ECA54BE2DA58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{AB6ECD50-C31C-4B0B-9978-34DFD6E6E6E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3B12176-E8EC-4AF4-8180-ECA54BE2DA58} = {C3B12176-E8EC-4AF4-8180-ECA54BE2DA58}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
