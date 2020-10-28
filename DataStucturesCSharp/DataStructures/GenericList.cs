@@ -78,7 +78,7 @@ namespace DataStucturesCSharp.DataStructures {
         }
 
         public void Clear() {
-            throw new NotImplementedException();
+            Count = 0;
         }
 
         public IEnumerator<T> GetEnumerator() {
