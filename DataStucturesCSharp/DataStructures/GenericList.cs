@@ -36,9 +36,13 @@ namespace DataStucturesCSharp.DataStructures {
 
         private void ResizeArray() {
             var currentArray = Array;
-            var newArray = new T[currentArray.Length * 2];
+            var newCapacity = currentArray.Length * 2;
+            
+            var newArray = new T[newCapacity];
             currentArray.CopyTo(newArray, 0);
+            
             Array = newArray;
+            Capacity = newCapacity;
         }
 
         public void Add(T item) {
