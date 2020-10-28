@@ -12,9 +12,7 @@ namespace DataStucturesCSharp.DataStructures {
         // Capacity of Array before having to resize the array.  
         private int Capacity { get; set; }
         // How many items are in the array at the moment.
-        bool ICollection<T>.Remove(T item) {
-            throw new NotImplementedException();
-        }
+
 
         public int Count { get; private set; }
         public bool IsReadOnly { get; private set; }
@@ -45,7 +43,9 @@ namespace DataStucturesCSharp.DataStructures {
 
         public void Add(T item) {
 
-            if (Count >= Capacity) 
+            var isFull = CheckIfListIsFull();
+
+            if (isFull) ResizeArray();
 
             // Adds the item to the array at the current Count.
             Array[Count] = item;
@@ -53,11 +53,19 @@ namespace DataStucturesCSharp.DataStructures {
             Count++;
         }
 
-        public void CopyTo(T[] array, int arrayIndex) {
+        public void Insert(int index, T item) {
             throw new NotImplementedException();
         }
 
+        public void CopyTo(T[] array, int arrayIndex) {
+            Array.CopyTo(array, arrayIndex);
+        }
+
         public void Remove(T item) {
+            throw new NotImplementedException();
+        }
+
+        bool ICollection<T>.Remove(T item) {
             throw new NotImplementedException();
         }
 
@@ -83,9 +91,7 @@ namespace DataStucturesCSharp.DataStructures {
             throw new NotImplementedException();
         }
 
-        public void Insert(int index, T item) {
-            throw new NotImplementedException();
-        }
+
 
         public void RemoveAt(int index) {
             throw new NotImplementedException();
