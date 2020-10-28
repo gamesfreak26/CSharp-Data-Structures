@@ -11,23 +11,22 @@ namespace DataStucturesCSharp.DataStructures {
         private T[] Array { get; set; }
         // Capacity of Array before having to resize the array.  
         private int Capacity { get; set; }
-        // How many items are in the array at the moment.
-
-
         public int Count { get; private set; }
-        public bool IsReadOnly { get; private set; }
+        public bool IsReadOnly => false;
+
+        protected T OtherValue;
 
         public GenericList() : this(10) {}
 
         public GenericList(int capacity) {
-            
             Capacity = capacity;
             Array = new T[Capacity];
             Count = 0;
         }
 
-        private int Compare(T x, T y) {
-            throw new NotImplementedException();
+        public T this[int index] {
+            get => Array[index];
+            set => Array[index] = value;
         }
 
         private bool CheckIfListIsFull() {
@@ -65,12 +64,12 @@ namespace DataStucturesCSharp.DataStructures {
             Array.CopyTo(array, arrayIndex);
         }
 
-        public void Remove(T item) {
-            throw new NotImplementedException();
-        }
+        public bool Remove(T item) {
+            var index = IndexOf(item);
+            if (index == -1) return false;
 
-        bool ICollection<T>.Remove(T item) {
-            throw new NotImplementedException();
+            RemoveAt(IndexOf(item));
+            return true;
         }
 
         public bool Contains(T item) {
@@ -82,35 +81,40 @@ namespace DataStucturesCSharp.DataStructures {
         }
 
         public IEnumerator<T> GetEnumerator() {
-            throw new NotImplementedException();
+            for (var i = 0; i < Count; i++) {
+                yield return Array[i];
+            }
         }
 
         public bool IsEmpty() {
-            return false;
+            return Count == 0;
         }
-
-
-
+        
         public int IndexOf(T item) {
-            throw new NotImplementedException();
+            for (var i = 0; i < Count; i++) {
+                if (Array[i] == null) return -1;
+
+                if (Array[i].Equals(item)) {
+                    return i;
+                }
+            }
+            return -1;
         }
 
-
-
+        // Iterates through the array and 
+        // move everything 
         public void RemoveAt(int index) {
+            if (index < 0 || index > Count) 
+                throw new IndexOutOfRangeException();
 
-            try {
-                Array[index] = default;
-                Count--;
-            }
-            catch (Exception e) {
-                Console.WriteLine(e.Message);
-            }
-        }
+            if (IsReadOnly) throw new NotSupportedException();
 
-        public T this[int index] {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            for (int i = index; i < Count - 1; i++) {
+                Array[i] = Array[i + 1];
+            }
+
+            Count--;
+            
         }
 
         IEnumerator IEnumerable.GetEnumerator() {
