@@ -98,7 +98,14 @@ namespace DataStucturesCSharp.DataStructures {
 
 
         public void RemoveAt(int index) {
-            throw new NotImplementedException();
+
+            try {
+                Array[index] = default;
+                Count--;
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public T this[int index] {
