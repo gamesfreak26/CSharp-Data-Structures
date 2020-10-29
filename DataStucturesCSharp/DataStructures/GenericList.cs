@@ -73,7 +73,14 @@ namespace DataStucturesCSharp.DataStructures {
         }
 
         public bool Contains(T item) {
-            throw new NotImplementedException();
+
+            for (var i = 0; i < Count; i++) {
+                if (Array[i].Equals(item)) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void Clear() {
