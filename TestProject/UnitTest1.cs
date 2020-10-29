@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 using DataStucturesCSharp.DataStructures;
 using NUnit.Framework;
 using Shouldly;
@@ -34,7 +35,7 @@ namespace TestProject {
         }
 
         [Test]
-        public void RemoveElement() {
+        public void RemoveOnlyElement() {
             var list = new GenericList<int> {
                 0
             };
@@ -43,6 +44,18 @@ namespace TestProject {
             
             list.ShouldBeEmpty();
             list.Count.ShouldBe(0);
+        }
+
+        [Test]
+        public void RemoveElement() {
+            var list = new GenericList<int> {
+                0, 1, 2, 3, 4, 5
+            };
+
+            list.RemoveAt(2);
+
+            list.ShouldNotBeEmpty();
+            list.Count.ShouldBe(5);
         }
 
         [Test]
@@ -75,6 +88,28 @@ namespace TestProject {
             list.Clear();
 
             list.Count.ShouldBe(0);
+        }
+
+        [Test]
+        public void IndexOf() {
+            var list = new GenericList<int> {
+                0, 1, 2, 3, 4, 5, 6
+            };
+
+            var index = list.IndexOf(4);
+
+            index.ShouldBe(4);
+        }
+
+        [Test]
+        public void IndexOfItemNotInList() {
+            var list = new GenericList<int> {
+                0, 1, 2, 3, 4, 5, 6
+            };
+
+            var index = list.IndexOf(7);
+
+            index.ShouldBe(-1);
         }
     }
 }
