@@ -3,12 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStucturesCSharp", "DataStucturesCSharp\DataStucturesCSharp.csproj", "{C3B12176-E8EC-4AF4-8180-ECA54BE2DA58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStucturesCSharp", "DataStucturesCSharp\DataStucturesCSharp.csproj", "{C3B12176-E8EC-4AF4-8180-ECA54BE2DA58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{AB6ECD50-C31C-4B0B-9978-34DFD6E6E6E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{AB6ECD50-C31C-4B0B-9978-34DFD6E6E6E7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C3B12176-E8EC-4AF4-8180-ECA54BE2DA58} = {C3B12176-E8EC-4AF4-8180-ECA54BE2DA58}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeKatas", "CodeKatas\CodeKatas.csproj", "{A766FAFA-8448-4B70-904B-3012C3D27313}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,10 @@ Global
 		{AB6ECD50-C31C-4B0B-9978-34DFD6E6E6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB6ECD50-C31C-4B0B-9978-34DFD6E6E6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB6ECD50-C31C-4B0B-9978-34DFD6E6E6E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A766FAFA-8448-4B70-904B-3012C3D27313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A766FAFA-8448-4B70-904B-3012C3D27313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A766FAFA-8448-4B70-904B-3012C3D27313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A766FAFA-8448-4B70-904B-3012C3D27313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
