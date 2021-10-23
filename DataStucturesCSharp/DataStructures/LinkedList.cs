@@ -5,26 +5,22 @@ using System.Text;
 
 namespace DataStucturesCSharp.DataStructures
 {
-
-    internal class Node<T>
+    public class LinkedList<T> : IGenericCollection<T>
     {
-        internal T data;
-        internal Node<T> next;
-        public Node(T d)
+        private class Node<T>
         {
-            data = d;
-            next = null;
+            internal T data;
+            internal Node<T> next;
+            public Node(T d)
+            {
+                data = d;
+                next = null;
+            }
         }
-    }
 
-    class LinkedList<T> : IGenericCollection<T>
-    {
-
-        // Declare a single-dimensional array of 5 integers.
-        private int[] arr;
         private Node<T> head;
 
-        LinkedList()
+        public LinkedList()
         {
             head = null;
         }
@@ -47,14 +43,14 @@ namespace DataStucturesCSharp.DataStructures
             }
         }
 
-        public Node<T> GetLastNode()
+        public T GetLastNode()
         {
             Node<T> temp = head;
             while (temp.next != null)
             {
                 temp = temp.next;
             }
-            return temp;
+            return temp.data;
         }
 
         public void Clear()
