@@ -63,9 +63,24 @@ namespace DataStucturesCSharp.DataStructures
             head.next = null;
         }
 
+        public bool Compare<T>(T x, T y)
+        {
+            return EqualityComparer<T>.Default.Equals(x, y);
+        }
+
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            Node<T> temp = head;
+            while (temp.next != null)
+            {
+                var comparison = Compare(temp.data, item);
+                if (comparison)
+                {
+                    return true;
+                }
+                temp = temp.next;
+            }
+            return false;
         }
 
         public IEnumerator<T> GetEnumerator()
